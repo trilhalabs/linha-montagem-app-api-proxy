@@ -1,4 +1,4 @@
-# 🟢 SOLUÇÃO EM DJANGO
+# 🟢 DJANGO
 
 ## Projeto linha-montagem-app-api-proxy
 
