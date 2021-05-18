@@ -15,10 +15,10 @@
 ### Running local machine
 
 ´´´shell
-  $ cd /linha-montagem-app-api-proxy
-  $ docker build -t proxy-lm .
-  $ cd ../linha-montagem-api-devops
-  $ docker-compose -f docker-compose-proxy.yml up
+cd /linha-montagem-app-api-proxy
+docker build -t proxy-lm .
+cd ../linha-montagem-api-devops
+docker-compose -f docker-compose-proxy.yml up
 ´´´
 
 - Test: <http://localhost:8000/admin/>
