@@ -4,6 +4,8 @@
 
   > Proxy para aplicação linha-montagem-api-devops, com pipeline no Gitlab
 
+- Modelo de versionamento **branch** e **tag release** (*-release)
+
 ## Usage
 
 ### Environment Variables
