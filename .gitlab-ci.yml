@@ -16,10 +16,10 @@ Build:
   stage: Build
   before_script: []
   script:
-    - echo "=====Criando imagem proxy-lm===="
+    - echo "=====Criando imagem proxy_lm===="
     - mkdir data/
-    - docker build --compress -t proxy-lm .
-    - docker save --output data/image.tar proxy-lm
+    - docker build --compress -t proxy_lm .
+    - docker save --output data/image.tar proxy_lm
   artifacts:
     name: image
     paths:
@@ -29,7 +29,8 @@ Push Dev:
   stage: Push
   script:
     - echo "=====Executando push da imagem dev $ECR_REPO:dev===="
-    - docker tag proxy-lm:latest $ECR_REPO:dev
+    - echo $ECR_REPO:dev
+    - docker tag proxy_lm:latest $ECR_REPO:dev
     - docker push $ECR_REPO:dev
   rules:
     - if: "$CI_COMMIT_BRANCH == 'master'"
@@ -43,7 +44,7 @@ Push Release:
     - export TAGGED_ECR_REPO=$ECR_REPO:$(echo $CI_COMMIT_TAG | sed 's/-release//')
     - echo $TAGGED_ECR_REPO
     - echo "=====Imagem tagueada $TAGGED_ECR_REPO===="
-    - docker tag proxy-lm:latest $TAGGED_ECR_REPO
+    - docker tag proxy_lm:latest $TAGGED_ECR_REPO
     - docker push $TAGGED_ECR_REPO
     - docker tag $TAGGED_ECR_REPO $ECR_REPO:latest
     - docker push $ECR_REPO:latest
